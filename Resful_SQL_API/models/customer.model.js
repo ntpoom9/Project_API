@@ -8,8 +8,6 @@ const Customer = function (customer) {  //ใช้ arrow function ไม่ส�
     this.phonenumber = customer.phonenumber;
     this.email = customer.email;
     this.address = customer.address;
-
-
 };
 
 //Method insert Data
