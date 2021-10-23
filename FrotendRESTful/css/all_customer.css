@@ -101,14 +101,11 @@ font-weight: bold;
 @media (max-width:1325px) {
   .customer{
     display: grid;
-    grid-template-columns: repeat(3 ,1fr);
-    grid-gap: 1rem;
+    grid-template-columns: repeat(3 ,0.3fr);
+    grid-gap: 0.3rem;
     justify-items: center;
+    margin: 10px;
 }
-.container{
-  justify-content: center;
-}
-
 }
 
 @media (max-width:1056px) {

@@ -84,10 +84,7 @@ const addCustomerByName = (element) => {
     item.innerHTML = card;  //เอาไปแทรกที่card ลงใน div
     const customerElement = document.querySelector(".customer"); //เข้าถึง class หน้า HTML
     customerElement.appendChild(item); //เพิ่มลงไป
-
-
 }
-
 // ลบรูปเก่าที่ค้นหา
 const removePreCustomer = () => {
     const restaurantsElement = document.querySelector(".customer");
@@ -95,11 +92,10 @@ const removePreCustomer = () => {
 
 }
 //ค้นหารูป
-const searchCustomer = async (event) => {
-
-    const keyword = event.target.value;
-
-    if (event.key === "Enter" && keyword) {
+const searchCustomer = async (event) => { //!-- ประกาศตัวแปร searchCustomer
+                                        //!-- เมื่อ async อยู่หน้าฟังก์ชัน จะต้องมี await
+    const keyword = event.target.value;   //!-- ประกาศ keyword เท่ากับ พารามิเตอร์ event กำหนดไปที่ value
+    if (event.key === "Enter" && keyword) {   //!-- ถ้า พารามิเตอร์ที่คีย์ ค่าชนิด ต้องตรงการ Enter และ คำ
         const allCustomer = await fetch('http://localhost:5000/apis/customer',
             {
                 method: "GET",
@@ -107,32 +103,27 @@ const searchCustomer = async (event) => {
                 cache: "no-cache",
                 credentials: "same-origin",
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "application/json",  //!-- Type เป็น json
                 },
             }
         ).then((response) => {
-            return response.json();
-        }
-        );
-        console.log(keyword);
+            return response.json(); //!-- ส่งค่ากลับมาเป็นข้อมูล json
+        });
+        //console.log(keyword);
         // console.log(allCustomer);
-
-        // ค้นหา 2 อย่าง จากคำที่พิมมา
-        const result = allCustomer.filter(
-            (item) => item.customer_name.includes(keyword)
+        // !  ค้นหา 2 อย่าง จากคำที่พิมมา
+        const result = allCustomer.filter( //!-- ประกาศตัวแปร result = ตัวแปรที่เก็บค่ามาแสดง
+            (item) => item.customer_name.includes(keyword) //!-- พารามิเตอร์ item ให้ค้าหาจาก name
         );
         // console.log(result);
-
-        //ใช้ forEach ส่ง element ไป ในmetthod เพื่อสร้างข้อมูลออกมา
+        //!  ใช้ forEach ส่ง element ไป ในmetthod เพื่อสร้างข้อมูลออกมา
         removePreCustomer();
         result.forEach((element) => addCustomerByName(element));
     }
 }
-
-const main = () => {
-    const inputElement = document.querySelector("#search")
-    inputElement.addEventListener("keydown", searchCustomer)
+const main = () => {  //!-- ประกาศ ฟังก์ชัน main 
+    const inputElement = document.querySelector("#search")  //!-- return ค่าเป็น  node ที่ id search
+    inputElement.addEventListener("keydown", searchCustomer) //!-- ส่งข้อมูลไปที่ keydown ฟังก์ชัน searchRestaurants
 
 };
-
 main();

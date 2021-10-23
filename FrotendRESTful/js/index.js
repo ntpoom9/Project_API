@@ -65,7 +65,7 @@ const addRestaurant = (element) => {
     <img src="${element.imgURL}" class="card-img-top" alt="${element.name}">
     <div class="card-body">
         <h5 class="card-title">${element.name}</h5>
-        <p class="card-text">${element.type}</p>
+        <p class="card-text"><b>ประเภท: </b>${element.type}</p>
         <a href="#" class="btn btn-danger" onclick="deleteRestaurants(${element.id})">ลบ</a>
         <a href="edit.html?id=${element.id}" class="btn btn-warning" >แก้ไข</a>
     </div>`;
@@ -83,44 +83,40 @@ const removePre = () => {
 
 }
 //ค้นหารูป
-const searchRestaurants = async (event) => {
-
-    const keyword = event.target.value;
-
-    if (event.key === "Enter" && keyword) {
-        const allRestaurants = await fetch('http://localhost:5000/apis/restaurants',
-            {
-                method: "GET",
+const searchRestaurants = async (event) => {  //!-- ประกาศตัวแปร searchRestaurants 
+                                              //!-- เมื่อ async อยู่หน้าฟังก์ชัน จะต้องมี await
+    const keyword = event.target.value;       //!-- ประกาศ keyword เท่ากับ พารามิเตอร์ event กำหนดไปที่ value
+    if (event.key === "Enter" && keyword) {   //!-- ถ้า พารามิเตอร์ที่คีย์ ค่าชนิด ต้องตรงการ Enter และ คำ
+        const allRestaurants = await fetch('http://localhost:5000/apis/restaurants', 
+            {                                 //!-- ให้แสดงข้อมูลออกมา
+                method: "GET",       
                 mode: "cors",
                 cache: "no-cache",
                 credentials: "same-origin",
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "application/json", //!-- Type เป็น json
                 },
             }
         ).then((response) => {
-            return response.json();
+            return response.json(); //!-- ส่งค่ากลับมาเป็นข้อมูล json
         }
         );
         // console.log(keyword);
         // console.log(allRestaurants);
-
-        // ค้นหา 2 อย่าง จากคำที่พิมมา
-        const result = allRestaurants.filter(
-            (item) => item.name.includes(keyword) || item.type.includes(keyword)
+        //! ค้นหา 2 อย่าง จากคำที่พิมมา
+        const result = allRestaurants.filter(  //!-- ประกาศตัวแปร result = ตัวแปรที่เก็บค่ามาแสดง
+            (item) => item.name.includes(keyword)  //!-- พารามิเตอร์ item ให้ค้าหาจาก name หรือ ค้นหาจาก type
+            || item.type.includes(keyword)  
         );
         // console.log(result);
-
-        //ใช้ forEach ส่ง element ไป ในmetthod เพื่อสร้างข้อมูลออกมา
-        removePre();
-        result.forEach((element) => addRestaurant(element));
+        
+        removePre();                
+        result.forEach((element) => addRestaurant(element)); 
+                        //!ใช้ forEach ส่ง element ไป ในmetthod เพื่อสร้างข้อมูลออกมา
     }
 }
-
-const main = () => {
-    const inputElement = document.querySelector("#search")
-    inputElement.addEventListener("keydown", searchRestaurants)
-
+const main = () => {  //!-- ประกาศ ฟังก์ชัน main 
+    const inputElement = document.querySelector("#search")  //!-- return ค่าเป็น  node ที่ id search
+    inputElement.addEventListener("keydown", searchRestaurants) //!-- ส่งข้อมูลไปที่ keydown ฟังก์ชัน searchRestaurants
 };
-
 main();
