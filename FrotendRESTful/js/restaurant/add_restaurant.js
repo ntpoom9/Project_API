@@ -26,14 +26,14 @@ const add = async () => {
       ).then((response) => {
         return response.json(); //คอนเวิดให้อยู่ในรูปแบบ json
       }).then(() => {
-        alert(`เพิ่มข้อมูลร้านอาหารเรียบร้อยแล้ว`);
+        alert(`เพิ่มข้อมูลร้านอาหารเรียบร้อยแล้ว!`);
         window.location = './all_restaurant.html';
       });
     } catch (error) {
-      alert(`เพิ่มข้อมูลร้านอาหารเรียบร้อยแล้ว`);
+      alert(`เพิ่มข้อมูลร้านอาหารเรียบร้อยแล้ว!`);
       window.location = './all_restaurant.html';
     }
   } else {
-    alertalert("All fields are required!!");
+    alertalert("กรุณากรอกข้อมูลทั้งหมดให้ครบ!");
   }
 };

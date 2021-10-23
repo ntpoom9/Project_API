@@ -1,0 +1,15 @@
+.banner_search{
+    background-image: url(../img/book-bg.jpg);
+    display: grid;
+    padding: 3rem 0;
+    text-align: center;
+    height: 700px;
+}
+@media (max-width:701px){
+    .restaurants{
+        display: grid;
+        grid-template-columns: repeat(3 ,1fr);
+        grid-gap: 1rem;
+        height: auto;
+    }
+}

@@ -58,14 +58,13 @@ const edit = async () => {
                 body: JSON.stringify(params),
             }
         ).then((response) => {
-            return response.json();
-        }).then(() => {
             alert(`อัพเดทข้อมูลร้านอาหาร ไอดีร้านอาหารที่ ${id} เรียบร้อยแล้ว!`);
             window.location = './all_restaurant.html';
+            return response.json();
         });
     }
     else {
-        // alert(`Restaurants ID is missing!`);
+          alert(`ไม่พบ ID ร้านอาหาร`);
     }
 }
 
