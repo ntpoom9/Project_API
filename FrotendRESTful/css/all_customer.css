@@ -88,7 +88,7 @@ font-weight: bold;
 /* banner */
 .banner_all_customer {
   padding: 3rem 0;
-  background-image: url(../img/bg_all_customer.jpg);
+  background-image: url(../img/bgindexCustomer.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -153,4 +153,9 @@ font-weight: bold;
     justify-items: center;
 }
 
+}
+#h1{
+  text-shadow: 1px -1px 0px rgba(158, 255, 2, 0.8);
+  color:aliceblue;
+  font-size: 30px;
 }

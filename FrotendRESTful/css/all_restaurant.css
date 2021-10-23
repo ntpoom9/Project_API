@@ -60,3 +60,9 @@ padding-bottom: 5px;
 p {
     display: block;
 }
+#h1{
+    text-shadow: 1px -1px 0px rgba(158, 255, 2, 0.8);
+    color:aliceblue;
+    font-size: 30px;
+  }
+  
