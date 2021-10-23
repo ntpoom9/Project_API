@@ -1,15 +1,116 @@
+input {
+    border: 1px solid #dfe1e5;
+    border-radius: 10px;
+  
+    width: 50%;
+    height: 50px;
+  
+    padding: 20px;  
+    font-size: 20px;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  .restaurants{
+    display: grid;
+    grid-template-columns: repeat(3 ,1fr);
+    grid-gap: 1rem;
+}
+.btn-danger,.btn-warning{
+ width: 60px;
+}
+.card-title{
+height: 50px;
+padding-bottom: 5px;
+}
+.card-text{
+    height: 40px;
+}
+  
+  .topic_search{
+    margin-top: 1rem;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1rem;
+  }
+
 .banner_search{
     background-image: url(../img/book-bg.jpg);
     display: grid;
     padding: 3rem 0;
     text-align: center;
-    height: 700px;
+    
 }
-@media (max-width:701px){
+@media (min-height:592px){
+    .banner_search{
+        height:900px;
+    }
+}
+@media (min-height:400px){
+    .banner_search{
+        height:800px;
+    }
+}
+@media (min-height:300px){
+    .banner_search{
+        height:700px;
+    }
+}
+@media (max-width:500px){
+    .restaurants{
+        display: grid;
+        grid-template-columns: repeat(4 ,1fr);
+        grid-gap: 1rem;
+        padding-right: 500px;
+    }
+}
+@media (max-width:992px){
     .restaurants{
         display: grid;
         grid-template-columns: repeat(3 ,1fr);
         grid-gap: 1rem;
-        height: auto;
     }
 }
+@media (max-width:768px){
+    .restaurants{
+        display: grid;
+        grid-template-columns: repeat(2 ,1fr);
+        grid-gap: 1rem;
+    }
+}
+@media (max-width:766px){
+    .restaurants{
+        display: grid;
+        grid-template-columns: repeat(2 ,1fr);
+        grid-gap: 1rem;
+        padding: 5px;
+    }
+}
+@media (max-width:576px){
+    .restaurants{
+        display: grid;
+        grid-template-columns: repeat(2 ,1fr);
+        grid-gap: 0.3rem;
+        padding: 5px;
+    }
+}
+@media (max-width:480px){
+    .restaurants{
+        display: grid;
+        grid-template-columns: repeat(1 ,1fr);
+        grid-gap: 3rem;
+         padding: 0 50px
+    }
+}
+p {
+    display: block;
+}
+#h1{
+    text-shadow: 1px -1px 0px rgba(158, 255, 2, 0.8);
+    color:aliceblue;
+    font-size: 30px;
+  }

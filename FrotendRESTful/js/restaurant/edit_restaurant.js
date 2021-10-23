@@ -64,7 +64,7 @@ const edit = async () => {
         });
     }
     else {
-          alert(`ไม่พบ ID ร้านอาหาร`);
+        //   alert(`ไม่พบ ID ร้านอาหาร`);
     }
 }
 
