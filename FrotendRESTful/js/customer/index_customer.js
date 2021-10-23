@@ -70,6 +70,7 @@ const addCustomerByName = (element) => {
     <div class="card-body">
       <h5 class="card-title">ชื่อผู้ใช้ : ${element.customer_name}</h5>
       <div class="content-data">
+      <p class="topic-cus">ไอดีผู้ใช้ : <span class="content-cus">${element.customer_id}</span></p>
       <p class="topic-cus">เบอร์โทร : <span class="content-cus">${element.phonenumber}</span></p>
       <p class="topic-cus">อีเมล : <span class="content-cus">${element.email}</span></p>
       <p class="topic-cus">ที่อยู่ : <span class="content-cus">${element.address}</span></p>
