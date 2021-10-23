@@ -19,13 +19,14 @@ const addCustomer = (element) => {
     <div class="card-body">
       <h5 class="card-title">ชื่อผู้ใช้ : ${element.customer_name}</h5>
       <div class="content-data">
+      <p class="topic-cus">ไอดีผู้ใช้ : <span class="content-cus">${element.customer_id}</span></p>
       <p class="topic-cus">เบอร์โทร : <span class="content-cus">${element.phonenumber}</span></p>
       <p class="topic-cus">อีเมล : <span class="content-cus">${element.email}</span></p>
       <p class="topic-cus">ที่อยู่ : <span class="content-cus">${element.address}</span></p>
       </div>
       
 
-      <a href="#" class="btn btn-danger" onclick="deleteCustomer(${element.customer_id})">ลบ</a>
+      <a href="#" class="btn btn-danger" onclick="deleteCustomerAll(${element.customer_id})">ลบ</a>
       <a href="edit_customer.html?customer_id=${element.customer_id}" class="btn btn-warning">แก้ไข</a>
     </div>
     `;
@@ -41,7 +42,7 @@ const removeAllResult = () => {
 
 
 
-const deleteCustomer = async (customer_id) => { //รับไอดีที่ส่งมา
+const deleteCustomerAll = async (customer_id) => { //รับไอดีที่ส่งมา
     if (customer_id) { //เช็ค customer_id
         try {
             const restaurant = await fetch(
