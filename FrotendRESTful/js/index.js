@@ -67,13 +67,11 @@ const addRestaurant = (element) => {
         <h5 class="card-title">${element.name}</h5>
         <p class="card-text"><b>ประเภท: </b>${element.type}</p>
         <a href="#" class="btn btn-danger" onclick="deleteRestaurants(${element.id})">ลบ</a>
-        <a href="edit.html?id=${element.id}" class="btn btn-warning" >แก้ไข</a>
+        <a href="edit_restaurant.html?id=${element.id}" class="btn btn-warning" >แก้ไข</a>
     </div>`;
     item.innerHTML = card;
     const restaurantsElement = document.querySelector(".restaurants");
     restaurantsElement.appendChild(item);
-
-
 }
 
 // ลบรูปเก่าที่ค้นหา
